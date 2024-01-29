@@ -1363,6 +1363,15 @@ config INPUT_PRESS_NDT
 	help
 	  Say Y here if you have a press ic ndt.
 
+config TOUCHSCREEN_COMMON
+	  bool "Common touchscreen interface to interact with userspace"
+	  default y
+	  help
+		Say Y here if you want to control touchpanel features via
+		/sys/touchpanel.
+  
+		If unsure, say N.
+
 config SECURE_TOUCH
 	bool "Secure Touch support for Xiaomi Touchscreen"
 	help
@@ -1372,25 +1381,16 @@ config SECURE_TOUCH
 
 	  If unsure, say N.
 
-source "drivers/input/touchscreen/focaltech_3658u/Kconfig"
-source "drivers/input/touchscreen/focaltech_touch_mi/Kconfig"
-source "drivers/input/touchscreen/focaltech_spi/Kconfig"
+source "drivers/input/touchscreen/xiaomi/Kconfig"
+source "drivers/input/touchscreen/goodix_driver_gt9886/Kconfig"
+source "drivers/input/touchscreen/nt36672c/Kconfig"
+source "drivers/input/touchscreen/nt36523/Kconfig"
+source "drivers/input/touchscreen/goodix_9916/Kconfig"
 source "drivers/input/touchscreen/fts_521/Kconfig"
 source "drivers/input/touchscreen/fts_spi/Kconfig"
-source "drivers/input/touchscreen/goodix_9916/Kconfig"
-source "drivers/input/touchscreen/goodix_driver_gt9886/Kconfig"
+source "drivers/input/touchscreen/focaltech_spi/Kconfig"
+source "drivers/input/touchscreen/focaltech_3658u/Kconfig"
+source "drivers/input/touchscreen/focaltech_touch_mi/Kconfig"
 source "drivers/input/touchscreen/hxchipset/Kconfig"
-source "drivers/input/touchscreen/nt36523/Kconfig"
-source "drivers/input/touchscreen/nt36672c/Kconfig"
-source "drivers/input/touchscreen/xiaomi/Kconfig"
-
-config TOUCHSCREEN_COMMON
-	bool "Common touchscreen interface to interact with userspace"
-	default y
-	help
-	  Say Y here if you want to control touchpanel features via
-	  /sys/touchpanel.
-
-	  If unsure, say N.
 
 endif
